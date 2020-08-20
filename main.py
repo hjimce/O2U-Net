@@ -8,9 +8,6 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 import torchvision.transforms as transforms
 from data.cifar import CIFAR10, CIFAR100
-from data.mnist import MNIST
-from  data.MiniImagenet import MiniImagenet
-from data.clothing1m_clean import Clothing1M_Clean32
 from model import cotnet
 import argparse, sys
 import numpy as np
@@ -84,25 +81,6 @@ if args.dataset=='cifar100':
 
 	test_dataset = CIFAR100(root=args.result_dir,
 								download=True,
-								train=False,
-								transform=transforms.ToTensor(),
-								noise_type=args.noise_type,
-				noise_rate=args.noise_rate
-					)
-if args.dataset=='minimagenet':
-	input_channel=3
-	num_classes=84
-	args.top_bn = False
-	args.epoch_decay_start = 100
-
-	train_dataset = MiniImagenet(root=args.result_dir,
-								train=True,
-								transform=transformer,
-								noise_type=args.noise_type,
-				noise_rate=args.noise_rate
-					)
-
-	test_dataset = MiniImagenet(root=args.result_dir,
 								train=False,
 								transform=transforms.ToTensor(),
 								noise_type=args.noise_type,
