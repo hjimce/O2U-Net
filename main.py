@@ -8,7 +8,7 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 import torchvision.transforms as transforms
 from data.cifar import CIFAR10, CIFAR100
-from model import cotnet
+
 import argparse, sys
 import numpy as np
 from data.mask_data import Mask_Select
@@ -35,7 +35,7 @@ print (args)
 torch.manual_seed(args.seed)
 torch.cuda.manual_seed(args.seed)
 
-network_map={'coteacher':cotnet,'resnet101':ResNet101}
+network_map={'resnet101':ResNet101}
 CNN=network_map[args.network]
 
 
